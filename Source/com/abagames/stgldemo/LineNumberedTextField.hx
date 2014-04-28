@@ -12,11 +12,11 @@ class LineNumberedTextField extends Sprite {
 		super();
 		createTextFields(width, height);
 	}
-	public var text(getText, setText):String;
-	function getText():String {
+	public var text(get_text, set_text):String;
+	function get_text():String {
 		return textField.text;
 	}
-	function setText(s:String):String {
+	function set_text(s:String):String {
 		textField.text = s;
 		refreshLines();
 		return s;
@@ -42,7 +42,7 @@ class LineNumberedTextField extends Sprite {
 		textField.addEventListener(FocusEvent.FOCUS_IN, onFocusIn);
 		textField.addEventListener(FocusEvent.FOCUS_OUT, onFocusOut);
 		var textFormat = new TextFormat();
-		var tabStops = new Array<Int>();
+		var tabStops = new Array<UInt>();
 		for (i in 0...20) tabStops.push((i + 1) * 20);
 		textFormat.tabStops = tabStops;
 		textFormat.font = "_typewriter";

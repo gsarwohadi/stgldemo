@@ -1,5 +1,7 @@
 package com.abagames.util.stgl;
-enum VarCommandType {
+
+enum VarCommandType
+{
 	Assignment;
 	Add;
 	Sub;

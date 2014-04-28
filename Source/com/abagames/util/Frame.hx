@@ -70,7 +70,7 @@ class Frame {
 			if (isDebugging) {
 				Letter.drawAligned("FPS: " + Std.string(Std.int(fps)), Screen.size.xi, 20, Right);
 			}
-			Se.updateAll();		
+			//Se.updateAll();		
 			ticks++;
 		} else {
 			Letter.draw("PAUSED", Screen.center.x, Screen.center.y - 8);

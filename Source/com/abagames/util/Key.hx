@@ -3,14 +3,14 @@ import flash.events.KeyboardEvent;
 import flash.Lib;
 class Key {
 	public static var s:Array<Bool>;
-	public static var isWPressed(getIsWPressed, null):Bool;
-	public static var isAPressed(getIsAPressed, null):Bool;
-	public static var isSPressed(getIsSPressed, null):Bool;
-	public static var isDPressed(getIsDPressed, null):Bool;
-	public static var isButtonPressed(getIsButtonPressed, null):Bool;
-	public static var isButton1Pressed(getIsButton1Pressed, null):Bool;
-	public static var isButton2Pressed(getIsButton2Pressed, null):Bool;
-	public static var stick(getStick, null):Xy;
+	public static var isWPressed(get_isWPressed, null):Bool;
+	public static var isAPressed(get_isAPressed, null):Bool;
+	public static var isSPressed(get_isSPressed, null):Bool;
+	public static var isDPressed(get_isDPressed, null):Bool;
+	public static var isButtonPressed(get_isButtonPressed, null):Bool;
+	public static var isButton1Pressed(get_isButton1Pressed, null):Bool;
+	public static var isButton2Pressed(get_isButton2Pressed, null):Bool;
+	public static var stick(get_stick, null):Xy;
 
 	static var stickXy:Xy;
 	public static function initialize():Void {
@@ -29,28 +29,28 @@ class Key {
 	static function onReleased(e:KeyboardEvent) {
 		s[e.keyCode] = false;
 	}
-	static function getIsWPressed():Bool {
+	static function get_isWPressed():Bool {
 		return s[0x26] || s[0x57];
 	}
-	static function getIsAPressed():Bool {
+	static function get_isAPressed():Bool {
 		return s[0x25] || s[0x41];
 	}
-	static function getIsSPressed():Bool {
+	static function get_isSPressed():Bool {
 		return s[0x28] || s[0x53];
 	}
-	static function getIsDPressed():Bool {
+	static function get_isDPressed():Bool {
 		return s[0x27] || s[0x44];
 	}
-	static function getIsButtonPressed():Bool {
+	static function get_isButtonPressed():Bool {
 		return isButton1Pressed || isButton2Pressed;
 	}
-	static function getIsButton1Pressed():Bool {
+	static function get_isButton1Pressed():Bool {
 		return s[0x5a] || s[0xbe] || s[0x20];
 	}
-	static function getIsButton2Pressed():Bool {
+	static function get_isButton2Pressed():Bool {
 		return s[0x58] || s[0xbf];
 	}	
-	static function getStick():Xy {
+	static function get_stick():Xy {
 		stickXy.v = 0;
 		if (isWPressed) stickXy.y -= 1;
 		if (isAPressed) stickXy.x -= 1;

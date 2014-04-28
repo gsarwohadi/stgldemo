@@ -1,5 +1,5 @@
 package com.abagames.util;
-import org.si.sion.SiONDriver;
+/*import org.si.sion.SiONDriver;
 import org.si.sion.SiONData;
 using Math;
 using com.abagames.util.FloatUtil;
@@ -94,4 +94,4 @@ class Se {
 	public static function updateAll():Void {
 		for (se in s) se.update();
 	}
-}
+}*/

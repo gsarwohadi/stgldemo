@@ -1,4 +1,5 @@
 package com.abagames.stgldemo;
+
 import com.abagames.util.Actor;
 import com.abagames.util.Button;
 import com.abagames.util.Color;
@@ -11,40 +12,54 @@ import com.abagames.util.Mouse;
 import com.abagames.util.Particle;
 import com.abagames.util.Platform;
 import com.abagames.util.Screen;
-import com.abagames.util.Se;
-import com.abagames.util.SeType;
+//import com.abagames.util.Se;
+//import com.abagames.util.SeType;
 import com.abagames.util.Xy;
 import com.abagames.util.stgl.Command;
 import com.abagames.util.stgl.Expression;
 import com.abagames.util.stgl.StglActor;
+
 import flash.Lib;
+
 using Math;
 using com.abagames.util.FloatUtil;
 using com.abagames.util.IntUtil;
-class Main extends Frame {
-	static var parsedSe = new Se().b(SeType.Major).t(0.1, 3, 0.5).t(0.3, 3, 0.7).t(0.5, 3, 0.9).e();
-	static var inGameSe = new Se().b(SeType.Minor).t(0.3, 2, 0.2).r().t(0.3, 2, 0.2).e();
+
+class Main extends Frame
+{
+	//static var parsedSe = new Se().b(SeType.Major).t(0.1, 3, 0.5).t(0.3, 3, 0.7).t(0.5, 3, 0.9).e();
+	//static var inGameSe = new Se().b(SeType.Minor).t(0.3, 2, 0.2).r().t(0.3, 2, 0.2).e();
+	
 	var sManager:SManager;
+	
 	var textField:LineNumberedTextField;
 	var startButton:Button;
 	var sampleOpenButton:Button;
 	var sampleButtons:Array<Button>;
 	var isSampleButtonsOpen = false;
+	
 	var player:Player;
+	
 	var consoleMessages:Array<String>;
+	
 	var hasError = false;
 	var starAddTicks = 0;
 	var isStarted = false;
 	var isF5Pressed = false;
-	public function new() {
+	
+	public function new()
+	{
 		super(320, 0, 320, 480);
 	}
-	override public function initializeFirst():Void {
+	
+	override public function initializeFirst():Void
+	{
 		title = "STGL DEMO";
 		isDebugging = false;
 		platform = new Platform();
 		textField = new LineNumberedTextField();
 		Lib.current.stage.addChild(textField);
+		
 		setSample(Sample.s.length - 1);
 		startButton = new Button("START", 10, 10, 80, 25);
 		sampleOpenButton = new Button("SAMPLES", 120, 10, 100, 25);
@@ -53,11 +68,13 @@ class Main extends Frame {
 			sampleButtons.push(new Button(Sample.s[i][0].toUpperCase(),
 				120, 40 + i * 30, 180, 25));
 		}
+		
 		sManager = new SManager();
 		StglActor.initialize(sManager);
 		player = new Player(sManager);
 		Shot.s = new Array<Shot>();
 		Star.s = new Array<Star>();
+		
 		consoleMessages = new Array<String>();
 	}
 	function setSample(i) {
@@ -98,7 +115,7 @@ class Main extends Frame {
 			} catch (msg:String) {
 				setError(msg);
 			}
-			if (ticks % 60 == 0) inGameSe.play();
+			//if (ticks % 60 == 0) inGameSe.play();
 		} else {
 			if (isStarted) initialize();
 		}
@@ -140,7 +157,7 @@ class Main extends Frame {
 			setConsoleMessage("STGL SUCCESSFULLY PARSED.");
 			hasError = false;
 			isStarted = true;
-			parsedSe.play();
+			//parsedSe.play();
 		} catch (msg:String) {
 			setError(msg);
 		}
@@ -163,7 +180,7 @@ class Main extends Frame {
 			y += 20;
 		}
 	}
-	static function main() {
+	public static function main() {
 		new Main();
 	}
 }

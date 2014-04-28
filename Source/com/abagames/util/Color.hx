@@ -18,14 +18,14 @@ class Color {
 		this.g = g;
 		this.b = b;
 	}
-	public var i(getI, null):Int;
-	public var rgb(null, setRgb):Color;
-	public var blink(getBlink, null):Color;
-	public var wz(getWz, null):Color;
-	public var dz(getDz, null):Color;
-	public var rz(getRz, null):Color;
-	public var gz(getGz, null):Color;
-	public var bz(getBz, null):Color;
+	public var i(get_i, null):Int;
+	public var rgb(null, set_rgb):Color;
+	public var blink(get_blink, null):Color;
+	public var wz(get_wz, null):Color;
+	public var dz(get_dz, null):Color;
+	public var rz(get_rz, null):Color;
+	public var gz(get_gz, null):Color;
+	public var bz(get_bz, null):Color;
 	public function blend(c:Color, ratio:Float):Color {
 		return changeValue(
 			Std.int((c.r - r) * ratio),
@@ -37,35 +37,35 @@ class Color {
 	static inline var LEVEL_VALUE = 50;
 	static inline var MAX_VALUE = LEVEL * LEVEL_VALUE;
 	static inline var WHITENESS = 0;
-	function getI():Int {
+	function get_i():Int {
 		return 0xff000000 + r * 0x10000 + g * 0x100 + b;
 	}
-	function setRgb(c:Color):Color {
+	function set_rgb(c:Color):Color {
 		r = c.r;
 		g = c.g;
 		b = c.b;
 		return this;
 	}
 	static var blinkColor:Color = new Color();
-	function getBlink():Color {
+	function get_blink():Color {
 		var random = Frame.i.random;
 		changeValueColor(blinkColor, 
 			random.i(128, -64), random.i(128, -64), random.i(128, -64));
 		return blinkColor;
 	}
-	function getWz():Color {
+	function get_wz():Color {
 		return changeValue(LEVEL_VALUE, LEVEL_VALUE, LEVEL_VALUE);
 	}
-	function getDz():Color {
+	function get_dz():Color {
 		return changeValue(-LEVEL_VALUE, -LEVEL_VALUE, -LEVEL_VALUE);
 	}
-	function getRz():Color {
+	function get_rz():Color {
 		return changeValue(LEVEL_VALUE, Std.int(-LEVEL_VALUE / 2), Std.int(-LEVEL_VALUE / 2));
 	}
-	function getGz():Color {
+	function get_gz():Color {
 		return changeValue(Std.int(-LEVEL_VALUE / 2), LEVEL_VALUE, Std.int(-LEVEL_VALUE / 2));
 	}
-	function getBz():Color {
+	function get_bz():Color {
 		return changeValue(Std.int(-LEVEL_VALUE / 2), Std.int(-LEVEL_VALUE / 2), LEVEL_VALUE);
 	}
 	function changeValue(rv:Int, gv:Int, bv:Int):Color {

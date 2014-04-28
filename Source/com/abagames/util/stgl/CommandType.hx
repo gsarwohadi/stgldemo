@@ -1,5 +1,7 @@
 package com.abagames.util.stgl;
-enum CommandType {
+
+enum CommandType
+{
 	Repeat;
 	While;
 	Wait;

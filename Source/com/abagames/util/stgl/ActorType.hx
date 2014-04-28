@@ -1,5 +1,7 @@
 package com.abagames.util.stgl;
-enum ActorType {
+
+enum ActorType 
+{
 	None;
 	Stage;
 	Enemy;
