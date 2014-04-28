@@ -12,6 +12,9 @@ To compile, it's as simple as typing:
 lime test flash
 ```
 
+### Note
+Currently the synthesizer library (SiON on lib folder) isn't loaded yet. So expect no sound is generated.
+
 # Language reference
 
 ##ACTOR and FUNCTION
