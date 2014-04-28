@@ -4,6 +4,14 @@ STGL (ShooTing Game Language)
 
 [Try in the browser](http://abagames.sakura.ne.jp/stgl/ "STGL demo")
 
+# Compile
+This version uses openfl/lime, so make sure you have them installed properly. Look [here](http://www.openfl.org/documentation/setup/install-lime/) and [here](http://www.openfl.org/documentation/setup/install-openfl/).
+
+To compile, it's as simple as typing:
+```
+lime test flash
+```
+
 # Language reference
 
 ##ACTOR and FUNCTION
